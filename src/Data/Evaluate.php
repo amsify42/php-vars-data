@@ -54,4 +54,34 @@ class Evaluate
 		}
 		return $value;
 	}
+
+	/**
+	 * Evaualte k/m/b to it equivalent number
+	 * @param  string $str
+	 * @return int
+	 */
+	public static function toCount($str)
+	{
+		$str = strtolower(trim($str));
+		if(strpos($str, 'k') !== false)
+		{
+			$str = str_replace('k', '', $str);
+			$str = (float)$str;
+			$str = $str*1000;
+		}
+		else if(strpos($str, 'm') !== false)
+		{
+			$str = str_replace('m', '', $str);
+			$str = (float)$str;
+			$str = $str*100000;
+		}
+		else if(strpos($str, 'b') !== false)
+		{
+			$str = str_replace('b', '', $str);
+			$str = (float)$str;
+			$str = $str*1000000000;
+		}
+		
+		return (int)$str;
+	}
 }

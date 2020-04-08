@@ -27,4 +27,13 @@ final class EvaluateTest extends TestCase
         $this->assertEquals(false, Evaluate::toValue('false'));
         $this->assertEquals(null, evaluate_to_value('null'));
     }
+
+    public function testToCount()
+    {
+        $this->assertEquals(2500, Evaluate::toCount('2.5K'));
+        $this->assertEquals(420000, Evaluate::toCount('4.2M'));
+        $this->assertEquals(3100, Evaluate::toCount('3.1k'));
+        $this->assertEquals(4000, Evaluate::toCount('4000'));
+        $this->assertEquals(1100000000 , Evaluate::toCount('1.1B'));
+    }
 }
