@@ -33,10 +33,17 @@ Evaluate::toString(null);
 Evaluate::toString(42);
 Evaluate::toString(4.2);
 ```
+To convert short count string value to its evaluated count
+```php
+Evaluate::toCount('2.5K');
+Evaluate::toCount('4.2M');
+Evaluate::toCount('1.1B');
+```
 We can do the same with helper methods as well
 ```php
 evaluate_to_value('true');
 evaluate_to_string(true);
+evaluate_to_count('3.1k');
 ```
 ### 2. Array Simple
 Its a helper class to set/get any level array element easily.

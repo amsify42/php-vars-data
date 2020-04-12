@@ -14,3 +14,8 @@ function evaluate_to_value($string)
 {
 	return \Amsify42\PHPVarsData\Data\Evaluate::toValue($string);
 }
+
+function evaluate_to_count($string)
+{
+	return \Amsify42\PHPVarsData\Data\Evaluate::toCount($string);
+}

@@ -34,7 +34,7 @@ class Evaluate
 
 	/**
 	 * Converts str to its evaluated value
-	 * @param  string $str [description]
+	 * @param  string $str
 	 * @return mixed
 	 */
 	public static function toValue($str)
