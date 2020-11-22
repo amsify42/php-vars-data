@@ -138,7 +138,7 @@ class ArraySimple implements \Iterator, \ArrayAccess, \Countable
 	    $i = $value;
 	}
 
-	public function get($path='')
+	public function get($path='', $default=NULL)
 	{
 		$path = trim($path);
 		if($path)
@@ -146,17 +146,20 @@ class ArraySimple implements \Iterator, \ArrayAccess, \Countable
 			$pathArray = explode('.', $path);
 			if(sizeof($pathArray)> 0)
 			{
-				return $this->getValue($pathArray);
+				return $this->getValue($pathArray, $default);
 			}
 		}
 		return $this->array;
 	}
 
-	private function getValue($keysPath)
+	private function getValue($keysPath, $default=NULL)
 	{
 		for($i=$this->array; $key=array_shift($keysPath),$key!==NULL; $i=$i[$key])
 		{
-			if(!isset($i[$key])) return null;
+			if(!isset($i[$key]))
+			{
+				return $default;
+			}
 	    }
 	    return $i;
 	}

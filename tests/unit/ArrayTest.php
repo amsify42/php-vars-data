@@ -29,6 +29,13 @@ final class ArrayTest extends TestCase
         $this->assertEquals([42,43], $this->arraySimple->get('detail.more_detail.ids'));
     }
 
+    public function testDefault()
+    {
+        $arraySimple = get_array_simple($this->sampleData());
+        $this->assertEquals($arraySimple->get('fullname', 'amsify42'), 'amsify42');
+        $this->assertEquals($arraySimple->get('detail.zip', 12345), 12345);
+    }
+
     private function setSimpleArray()
     {
         if(!$this->arraySimple)
